@@ -21,16 +21,34 @@
 
 //Задача 3: Задайте произвольную строку. Выясните, является ли она палиндромом.
 
-string str = "шалаш";
-bool flag = true;
-for (int i = 0; i < str.Length/2; i++){
-    if (str[i] != str[str.Length - 1 - i]){
-        flag = false;
-    }
+// string str = "шалаш";
+// bool flag = true;
+// for (int i = 0; i < str.Length/2; i++){
+//     if (str[i] != str[str.Length - 1 - i]){
+//         flag = false;
+//     }
+// }
+// if (flag){
+//     Console.Write("Да");
+// }
+// else{
+//     Console.Write("Нет");
+// }
+
+
+//Задача 4*(не обязательная): Задайте строку, состоящую из слов, разделенных пробелами.
+// Сформировать строку, в которой слова расположены в обратном порядке.
+// В полученной строке слова должны быть также разделены пробелами.
+
+string str = "А роза упала на лапу Азора";
+string [] array = str.Split(' ');
+for (int i = 0; i < array.Length/2; i++){
+    string temp = array[i];
+    array[i] = array[array.Length - 1 - i];
+    array[array.Length - 1 - i] = temp;
 }
-if (flag){
-    Console.Write("Да");
+str = "";
+for (int i = 0; i < array.Length; i++){
+    str += array[i] + " ";
 }
-else{
-    Console.Write("Нет");
-}
+Console.Write(str);
